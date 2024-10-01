@@ -1,57 +1,30 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
-function NavBar() {
-  const [activeLink, setActiveLink] = useState('');
-
-  const handleSelect = (selectedLink) => {
-    setActiveLink(selectedLink);
-  };
-
+export default function NavBar() {
   return (
-    <Navbar bg="light" expand="lg" fixed="top">
-      <Container>
-        <Navbar.Brand href="#home" className="me-3">
+    <nav style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'center', padding: '10px 0' }}>
+      <Link to="/" style={{ marginRight: '20px' }}>
         <img
-            src="https://png.pngtree.com/png-clipart/20230916/original/pngtree-alcohol-in-drinks-line-icon-vector-png-image_12262966.png"
-            width="150"
-            height="150"
-            className="d-inline-block align-top"
-            alt="Logo"
-          />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-          <Nav>
-            <Nav.Link
-              href="#energizantes"
-              className={`nav-link ${activeLink === 'energizantes' ? 'font-weight-bold border-bottom' : ''}`}
-              onClick={() => handleSelect('energizantes')}
-            >
-              Energizantes
-            </Nav.Link>
-            <Nav.Link
-              href="#importadas"
-              className={`nav-link ${activeLink === 'importadas' ? 'font-weight-bold border-bottom' : ''}`}
-              onClick={() => handleSelect('importadas')}
-            >
-              Importadas
-            </Nav.Link>
-            <Nav.Link
-              href="#sin-alcohol"
-              className={`nav-link ${activeLink === 'sin-alcohol' ? 'font-weight-bold border-bottom' : ''}`}
-              onClick={() => handleSelect('sin-alcohol')}
-            >
-              Sin Alcohol
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-        <CartWidget />
-      </Container>
-    </Navbar>
+          src="https://png.pngtree.com/png-clipart/20230916/original/pngtree-alcohol-in-drinks-line-icon-vector-png-image_12262966.png"
+          width="150"
+          height="150"
+          className="d-inline-block align-top"
+          alt="Logo"
+          style={{ cursor: 'pointer' }}
+        />
+      </Link>
+      <Link to="/" style={{ margin: '0 10px' }}>
+        <button type="button" className="btn btn-dark">Inicio</button>
+      </Link>
+      <Link to="/products" style={{ margin: '0 10px' }}>
+        <button type="button" className="btn btn-dark">Energizantes</button>
+      </Link>
+      <Link to="/contact" style={{ margin: '0 10px' }}>
+        <button type="button" className="btn btn-dark">Contacto</button>
+      </Link>
+      <CartWidget />
+    </nav>
   );
 }
-
-export default NavBar;

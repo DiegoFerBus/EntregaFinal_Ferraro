@@ -1,20 +1,22 @@
 // src/views/ProductsView/ProductsView.jsx
 import { useEffect, useState } from 'react';
-import { getProducts, getCategory } from '../../asyncMock';
-import ProductsList from '../../components/ProductsList';
+import { useParams } from 'react-router-dom';
+import { getCategory, getProducts } from '../../firebase/firebase';
+import ProductsList from '../../components/ItemList';
 
-export default function ProductsView({ category }) {
+export default function ProductsView() {
   const [products, setProducts] = useState([]);
+  const { category } = useParams(); // Obtener la categoría de la URL
 
   useEffect(() => {
     if (category) {
-      // Si hay una categoría, filtrar productos
+      // Filtrar productos por categoría
       getCategory(category).then((data) => {
         setProducts(data);
       });
     } else {
-      // Si no hay categoría, obtener todos los productos
-      getProducts.then((data) => {
+      // Obtener todos los productos si no hay categoría
+      getProducts().then((data) => {
         setProducts(data);
       });
     }
@@ -27,4 +29,3 @@ export default function ProductsView({ category }) {
     </div>
   );
 }
-

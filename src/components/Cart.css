@@ -1,0 +1,27 @@
+.cart-table {
+    width: 70%; /* Cambiado de 100% a 70% para reducir el ancho de la tabla */
+    border-collapse: collapse;
+    margin: 20px auto; /* Centrar la tabla con auto en los márgenes */
+  }
+  
+  .cart-table th, .cart-table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .cart-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .cart-table img {
+    width: 50px; /* Tamaño de las imágenes */
+    height: 50px; /* Altura de las imágenes */
+    object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+  }
+  
+  .cart-table .actions {
+    width: 100px; /* Ancho para la columna de acciones */
+  }
+  
+  

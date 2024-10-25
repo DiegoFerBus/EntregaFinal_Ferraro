@@ -1,0 +1,43 @@
+
+/* src/views/ContactView/ContactView.css */
+h2 {
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+  }
+  
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .custom-button {
+    background-color: #28a745; /* Color verde */
+    border-color: #28a745; /* Mismo color para el borde */
+    color: white; /* Color del texto */
+  }
+  
+  .custom-button:hover {
+    background-color: #218838; /* Color verde más oscuro al pasar el mouse */
+    border-color: #1e7e34; /* Color del borde más oscuro al pasar el mouse */
+  }
+  
+  
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

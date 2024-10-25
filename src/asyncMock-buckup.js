@@ -1,4 +1,4 @@
-const products = [
+/* const products = [
   {
     id: 1,
     title: 'Monster',
@@ -108,3 +108,4 @@ export const getCategory = (category) => {
     }, 2000);
   });
 };
+ */

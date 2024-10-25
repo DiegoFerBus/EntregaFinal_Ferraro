@@ -1,36 +1,13 @@
-// src/views/ProductView/ProductView.jsx
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getProduct } from '../../asyncMock';
+import AddItemButton from '../../components/AddItemButton'; // Asegúrate de que la ruta sea correcta
 
-export default function ProductView() {
-  const [product, setProduct] = useState(null);
-  const { id } = useParams();
-
-  useEffect(() => {
-    
-    const fetchProduct = async () => {
-      const productData = await getProduct(id);
-      setProduct(productData);
-    };
-    fetchProduct();
-  }, [id]);
-
-  if (!product) {
-    return <p>Cargando producto...</p>;
-  }
-
+export default function ProductView({ product }) {
   return (
-    <>
-      <article style={{ border: '1px solid white', padding: 40 }}>
-        <h2>Detalles del producto</h2>
-        <h4>
-          {product.title} - {product.category}
-        </h4>
-        <img src={product.image} alt={product.title} />
-        <p>Description: {product.description}</p>
-        <p>$ {product.price}</p>
-      </article>
-    </>
+    <div>
+      <h2>{product.title}</h2>
+      <img src={product.image} alt={product.title} />
+      <p>${product.price}</p>
+      {/* Agregar el componente AddItemButton y pasar el producto como prop */}
+      <AddItemButton product={product} />
+    </div>
   );
 }

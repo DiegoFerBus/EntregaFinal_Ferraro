@@ -1,21 +1,21 @@
 import { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { CartContext } from './CartContext'; // Asegúrate de que la ruta sea correcta
-import { getSingleProduct } from '../firebase/firebase'; // Ajusta la ruta según sea necesario
+import { CartContext } from './CartContext';
+import { getSingleProduct } from '../firebase/firebase';
 import './ItemDetail.css';
 
 export default function ItemDetail() {
-  const { id } = useParams(); // Obtener el ID del producto de la URL
-  const { addItemToCart } = useContext(CartContext); // Obtener la función para agregar al carrito
+  const { id } = useParams();
+  const { addItemToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Estado para manejar la cantidad
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const productData = await getSingleProduct(id); // Obtener el producto por ID
-        console.log('Producto obtenido:', productData); // Asegúrate de estar obteniendo el producto correcto
-        setProduct(productData); // Guardar el producto en el estado
+        const productData = await getSingleProduct(id);
+        console.log('Producto obtenido:', productData);
+        setProduct(productData);
       } catch (error) {
         console.error('Error al obtener el producto:', error);
       }
@@ -26,9 +26,9 @@ export default function ItemDetail() {
 
   const handleAddToCart = () => {
     if (product) {
-      // Asegurarse de que el producto esté definido
-      addItemToCart(product, quantity); // Agregar el producto al carrito con la cantidad seleccionada
-      setQuantity(1); // Reiniciar la cantidad a 1 después de agregar al carrito
+      
+      addItemToCart(product, quantity);
+      setQuantity(1);
     } else {
       console.error('Producto no disponible para agregar al carrito'); // Manejo de errores
     }
@@ -42,7 +42,7 @@ export default function ItemDetail() {
       <img src={product.image} alt={product.title} />
       <h2>{product.title}</h2>
       <p>${product.price}</p>
-      <p>{product.description}</p> {/* Asegúrate de mostrar la descripción aquí */}
+      <p>{product.description}</p>
 
       {/* Contador para seleccionar cantidad */}
       <div className="quantity-selector">
@@ -55,7 +55,7 @@ export default function ItemDetail() {
         <span>{quantity}</span>
         <button 
           className="btn btn-secondary" 
-          onClick={() => setQuantity(quantity + 1)} // Sumar
+          onClick={() => setQuantity(quantity + 1)}
         >
           +
         </button>

@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
-import { CartContext } from './CartContext'; // Asegúrate de que la ruta sea correcta
+import { CartContext } from './CartContext';
 
 const AddItemButton = ({ product }) => {
   const { addItemToCart } = useContext(CartContext);
-  const [quantity, setQuantity] = useState(1); // Estado para manejar la cantidad
+  const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {
-    const productWithQuantity = { ...product, quantity }; // Añadir cantidad al producto
-    addItemToCart(productWithQuantity); // Agregar al carrito
+    const productWithQuantity = { ...product, quantity };
+    addItemToCart(productWithQuantity);
   };
 
   return (

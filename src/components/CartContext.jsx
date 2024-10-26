@@ -5,11 +5,13 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     // Recuperar los items del carrito desde localStorage al iniciar la app
+
     const savedCart = localStorage.getItem('cartItems');
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
   // Guardar los items del carrito en localStorage cada vez que cambien
+
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
@@ -19,6 +21,7 @@ export const CartProvider = ({ children }) => {
     
     if (itemExists) {
       // Si el producto ya existe en el carrito, actualizamos su cantidad
+
       setCartItems(cartItems.map((cartItem) =>
         cartItem.id === item.id
           ? { ...cartItem, quantity: cartItem.quantity + quantity }
@@ -26,6 +29,7 @@ export const CartProvider = ({ children }) => {
       ));
     } else {
       // Si el producto no existe, lo agregamos con su cantidad
+      
       setCartItems([...cartItems, { ...item, quantity }]);
     }
   };

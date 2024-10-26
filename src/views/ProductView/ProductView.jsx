@@ -6,7 +6,7 @@ export default function ProductView({ product }) {
       <h2>{product.title}</h2>
       <img src={product.image} alt={product.title} />
       <p>${product.price}</p>
-      {/* Agregar el componente AddItemButton y pasar el producto como prop */}
+      
       <AddItemButton product={product} />
     </div>
   );

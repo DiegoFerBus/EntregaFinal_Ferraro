@@ -62,8 +62,8 @@ function Checkout() {
       const ordersCollection = collection(db, 'orders');
       const docRef = await addDoc(ordersCollection, order); // Agregar la orden y obtener el ID
 
-      setOrderId(docRef.id); // Guardar el ID de la orden
-      setOrderDetails(order); // Guardar los detalles de la orden
+      setOrderId(docRef.id);
+      setOrderDetails(order);
 
       // Limpiar el carrito y el formulario
       clearCart();
@@ -75,7 +75,7 @@ function Checkout() {
         repetirEmail: ''
       });
 
-      // Mostrar mensaje de éxito
+      
       Swal.fire({
         title: 'Compra realizada con éxito',
         text: `Tu orden fue generada con el ID: ${docRef.id}`,
@@ -97,7 +97,7 @@ function Checkout() {
     <div className="checkout-container">
       <h2>Compra en Tienda Drinks</h2> <br />
 
-      {/* Mostrar ID y detalles de la orden si existe */}
+      
       {orderId && (
         <div className="order-confirmation">
           <h3>Orden generada con éxito</h3>

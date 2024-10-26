@@ -21,13 +21,13 @@ export default function ContactView() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Mostrar el popup de SweetAlert2 con animaciones personalizadas
+    
     Swal.fire({
       title: 'Su mensaje ha sido enviado, gracias!',
       confirmButtonText: 'Listo',
-      confirmButtonColor: '#2f4de5', // Puedes especificar el color aquí también
+      confirmButtonColor: '#2f4de5',
       customClass: {
-        confirmButton: 'custom-button', // Aplicar la clase personalizada al botón
+        confirmButton: 'custom-button',
       },
       showClass: {
         popup: `

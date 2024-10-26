@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import './ItemListContainer.css';
-import { getProducts, getCategory } from '../firebase/firebase'; // Asegúrate de tener esta función
+import { getProducts, getCategory } from '../firebase/firebase';
 import ItemList from './ItemList';
-import { useParams } from 'react-router-dom'; // Importar useParams para capturar la categoría
+import { useParams } from 'react-router-dom';
 
 function ItemListContainer({ greeting }) {
-  const { category } = useParams(); // Capturar la categoría de la URL
+  const { category } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -14,13 +14,13 @@ function ItemListContainer({ greeting }) {
         const categoryProducts = await getCategory(category); // Obtener productos por categoría
         setProducts(categoryProducts);
       } else {
-        const productList = await getProducts();  // Obtener todos los productos si no hay categoría
+        const productList = await getProducts();
         setProducts(productList);
       }
     };
 
     fetchProducts();  
-  }, [category]); // Volver a ejecutar cuando cambie la categoría
+  }, [category]);
 
   return (
     <div className="item-list-container">

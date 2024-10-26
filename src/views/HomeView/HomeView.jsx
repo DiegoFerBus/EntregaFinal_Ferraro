@@ -12,7 +12,7 @@ export default function HomeView() {
     const fetchProducts = async () => {
       try {
         const data = await getProducts();
-        console.log(data); // Para verificar qué productos se obtienen
+        console.log(data);
         setProducts(data);
       } catch (error) {
         console.error("Error al obtener productos:", error);

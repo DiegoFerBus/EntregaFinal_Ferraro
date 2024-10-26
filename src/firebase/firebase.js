@@ -1,4 +1,4 @@
-// Importar las funciones necesarias de Firebase
+
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc, collection, getDocs } from 'firebase/firestore';
 

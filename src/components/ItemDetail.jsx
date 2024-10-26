@@ -1,14 +1,14 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSingleProduct } from '../../firebase/firebase';
-import { CartContext } from '../CartContext'; // Importar el contexto del carrito
+import { CartContext } from '../CartContext';
 import './itemdetail.css';
 
 function ItemDetail() {
-  const { itemId } = useParams(); // Obtener el ID del producto desde la URL
+  const { itemId } = useParams();
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Estado para manejar la cantidad
-  const { addItemToCart } = useContext(CartContext); // Obtener la función del contexto
+  const [quantity, setQuantity] = useState(1);
+  const { addItemToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -20,11 +20,11 @@ function ItemDetail() {
   }, [itemId]);
 
   if (!product) {
-    return <p className="loading-message">Cargando detalles del producto...</p>; // Mensaje centrado
+    return <p className="loading-message">Cargando detalles del producto...</p>;
   }
 
   const handleAddToCart = () => {
-    addItemToCart(product, quantity); // Llamar a la función para agregar al carrito, pasando el producto con el ID correcto
+    addItemToCart(product, quantity);
   };
 
   return (
@@ -41,7 +41,7 @@ function ItemDetail() {
         <button onClick={() => setQuantity(quantity + 1)}>+</button>
       </div>
 
-      {/* Botón para agregar al carrito */}
+      
       <button className="btn btn-primary" onClick={handleAddToCart}>
         Agregar al carrito
       </button>

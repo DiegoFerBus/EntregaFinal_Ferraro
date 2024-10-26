@@ -5,14 +5,14 @@ import { CartContext } from './CartContext';
 
 export default function ItemList({ products }) {
   const { addItemToCart } = useContext(CartContext);
-  const [quantities, setQuantities] = useState({}); // Para almacenar la cantidad de cada producto
+  const [quantities, setQuantities] = useState({});
 
   if (!products || products.length === 0) {
     return <p>Cargando productos....</p>;
   }
 
   const handleAddToCart = (product) => {
-    const quantity = quantities[product.id] || 1; // Obtener la cantidad, o 1 si no está definida
+    const quantity = quantities[product.id] || 1;
     addItemToCart(product, quantity);
     setQuantities({ ...quantities, [product.id]: 1 }); // Resetear cantidad después de agregar al carrito
   };
@@ -31,7 +31,7 @@ export default function ItemList({ products }) {
                 className="btn btn-secondary" 
                 onClick={() => setQuantities({
                   ...quantities,
-                  [product.id]: Math.max((quantities[product.id] || 1) - 1, 1) // No permitir que la cantidad sea menor que 1
+                  [product.id]: Math.max((quantities[product.id] || 1) - 1, 1)
                 })}
               >
                 -
@@ -41,7 +41,7 @@ export default function ItemList({ products }) {
                 className="btn btn-secondary" 
                 onClick={() => setQuantities({
                   ...quantities,
-                  [product.id]: (quantities[product.id] || 1) + 1 // Incrementar cantidad
+                  [product.id]: (quantities[product.id] || 1) + 1
                 })}
               >
                 +
